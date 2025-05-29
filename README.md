@@ -2,55 +2,57 @@
 
 ## AIM
 
-write a program to prepare EMI calculator using function with return type with arguments.
+To write a program to prepare EMI calculator using function without return type and with arguments.
 
 ## ALGORITHM
 
-1.      Define a function calculate_EMI that takes principal (p), interest rate (r), and time in years (t) to calculate the EMI.
-2.      In the EMI formula, convert the annual interest rate to a monthly rate and time to months.
-3.      Use the formula to calculate EMI:- emi = (p * r * pow(1 + r, t)) / (pow(1 + r, t) - 1);
-4.      In the main function, take user input for principal amount, annual interest rate, and loan period in years.
-5.      Call the function, store the result in emi, and print the monthly EMI amount.
-
+1.	Start the program.
+2.	Read principal amount, rate of interest and months.
+3.	Pass these values as arguments to function.
+4.	Calculate EMI using the formula, amt=(prpow(1+r,t))/(pow(1+r,t)-1)
+5.	Display the result.
+6.	Stop the program.
 
 ## PROGRAM
 ```
-#include <math.h>
 #include <stdio.h>
-// Function to calculate EMI
-float calculate_EMI(float p, float r, float t){
-   float emi;
-   r = r / (12 * 100); // one month interest
-   t = t * 12; // one month period
-   emi = (p * r * pow(1 + r, t)) / (pow(1 + r, t) - 1);
-   return (emi);
+#include <math.h>
+void calculateEMI(float principal, float rate, int months) {
+float monthlyRate = rate / (12 * 100);
+float emi;
+emi = (principal * monthlyRate * pow(1 + monthlyRate, months)) / (pow(1 + monthlyRate, months) - 1);
+printf("Monthly EMI: %.2f\n", emi);
 }
-int main(){
-   float principle, rate, time1, emi;
-   scanf("%f %f %f",&principle,&rate,&time1);
-   emi = calculate_EMI(principle, rate, time1);
-   printf("Monthly EMI is= %.3f", emi);
-   return 0;
+int main() {
+float principal, rate;
+int months;
+printf("Enter principal amount: ");
+scanf("%f", &principal);
+printf("Enter annual rate of interest (in percentage): ");
+scanf("%f", &rate);
+printf("Enter number of months: ");
+scanf("%d", &months);
+calculateEMI(principal, rate, months);
+return 0;
 }
 ```
 ## OUTPUT
 
-![image](https://github.com/user-attachments/assets/dfea1379-684a-4d8e-9a84-215549d07aee)
-
+![image](https://github.com/user-attachments/assets/2b50117d-efb1-4c7f-b70d-d7a517c38a9d)
 
 
 
 
 ## RESULT
 
-Thus the program to prepare EMI calculator using function with return type with arguments has been executed successfully.
+Thus the program to prepare EMI calculator using function without return type with arguments has been executed successfully
  
  
 
 
 # EX-12-FIBONACCI-SERIES
 ## AIM
-To write a C program to generate the Fibonacci series for the given input.
+To write a C program to generate the Fibonacci series for the value 6.
 
 ## ALGORITHM
 1.	Start the program.
@@ -63,30 +65,25 @@ To write a C program to generate the Fibonacci series for the given input.
 
 ## PROGRAM
 ```
-#include<stdio.h>
-int main()
-{
-    int x,f,a,b,i;
-    scanf("%d ",&x);
-    a=0;
-    printf("%d ",a);
-    
-    b=1;
-    printf("%d ",b);
-    for(i=3;i<=x;i++)
-    {
-        f=a+b;
-        printf("%d ",f);
-        a=b;
-        b=f;
-    }
-    return 0;
+#include <stdio.h>
+int main() {
+int n = 6, first = 0, second = 1, next;
+printf("Fibonacci series for %d terms:\n", n);
+printf("%d %d ", first, second);
+for (int i = 2; i < n; i++) {
+next = first + second;
+printf("%d ", next);
+first = second;
+second = next;
+}
+printf("\n");
+return 0;
 }
 ```
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/7d980a83-28db-405e-9563-7a0c99bb5934)
 
-![image](https://github.com/user-attachments/assets/7b6ab660-0fdd-412c-85cc-d9aad4ed1381)
 
 
 
@@ -94,111 +91,95 @@ int main()
 
 
 ## RESULT
-Thus the program to generate the Fibonacci series for the given input has been executed successfully.
+Thus the program to generate the Fibonacci series for the value 6 has been executed successfully.
  
  
 
 
 # EX-13-ONE-DIMENSIONAL-ARRAY
 ## AIM
-To write a C program to read n elements as input and to print the second last element of the array (integer).
+To write a C program to read n elements as input and print the last element of the array.
 
 ## ALGORITHM
-
-1.      Start the program and declare an integer n to store the number of elements.
-
-2.      Take input from the user for n, then declare an integer array a of size n.
-
-3.      Use a loop to read n elements from the user and store them in the array.
-
-4.      Print the second last element of the array using a[n-2].
-
-5.      End the program by returning 0.
-
-
-## PROGRAM
-```
-#include<stdio.h>
-int main()
-{
-    int n,i;
-    scanf("%d",&n);
-    int a[n];
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&a[i]);
-    }
-    printf("%d",a[n-2]);
-    return 0;
-}
-```
-## OUTPUT
-
-
-![image](https://github.com/user-attachments/assets/f2966f55-0feb-486d-b143-4dd2c37e581a)
-
-
-
-
-
-
-
-## RESULT
-Thus the program to read n elements as input and print the second last element of the array has been executed successfully.
- 
- 
-
-
-# EX-14-EVEN-ARRAY-ELEMENTS
-## AIM
-Write a C Program to Print the Number of  Even Numbers in an Array
-
-## ALGORITHM
-
-1.      Start the program and declare an integer n to store the number of elements.
-
-2.      Take input from the user for n, then declare an array a of size n.
-
-3.      Use a loop to read n numbers from the user and store them in the array.
-
-4.      Loop through the array again and check each number to see if it's even (a[i] % 2 == 0).
-
-5.      Print all even numbers found in the array.
-
-
+1.	Start the program.
+2.	Read a variable.
+3.	Read the array values n number of times.
+4.	Print the last element.
+5.	Stop the program.
 
 ## PROGRAM
 ```
 #include <stdio.h>
-int main()
-{
-    int i,n;
-    scanf("%d",&n);
-    int a[n];
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&a[i]);
-    }
-    printf("Even numbers in the array are - ");
-    for(i=0;i<n;i++)
-    {
-        if(a[i]%2==0)
-        {
-            printf("%d ",a[i]);
-        }
-    }
+int main() {
+int n;
+printf("Enter the number of elements: ");
+scanf("%d", &n);
+int arr[n];
+printf("Enter %d elements:\n", n);
+for (int i = 0; i < n; i++) {
+scanf("%d", &arr[i]);
+}
+printf("The last element of the array is: %d\n", arr[n - 1]);
+return 0;
 }
 ```
-
 ## OUTPUT
 
+![image](https://github.com/user-attachments/assets/442db6d3-e291-4cdb-be66-8576cb2e79f4)
 
-![image](https://github.com/user-attachments/assets/4aaa2c00-62a0-4d69-bd61-8453ae30b458)
+
+
+
+
 
 
 
 ## RESULT
-Thus the program to Print the Number of  Even Numbers in an Array  has been executed successfully.
+Thus the program to read n elements as input and print the last element of the array has been executed successfully.
+ 
+ 
+
+
+# EX-14-POSITIVE-ARRAY-ELEMENTS
+## AIM
+To write a C Program to count total number of positive elements in an array.
+
+## ALGORITHM
+1.	Start the program.
+2.	Read a variable.
+3.	Read the array values n number of times.
+4.	If the array value can be divided by 2 then increment count by 1.
+5.	Display result.
+6.	Stop the program.
+
+## PROGRAM
+```
+#include <stdio.h>
+int main() {
+int n, count = 0;
+printf("Enter the number of elements: ");
+scanf("%d", &n);
+int arr[n];
+printf("Enter %d elements:\n", n);
+for (int i = 0; i < n; i++) {
+scanf("%d", &arr[i]);
+if (arr[i] > 0) {
+count++;
+}
+}
+printf("Total number of positive elements: %d\n", count);
+return 0;
+}
+```
+## OUTPUT
+
+![image](https://github.com/user-attachments/assets/1f582ded-b659-445a-b928-fbd3d3ddfdf2)
+
+
+
+
+## RESULT
+Thus the program to count total number of positive elements in an array has been executed successfully.
 
 
 
@@ -208,70 +189,53 @@ Thus the program to Print the Number of  Even Numbers in an Array  has been exec
  
 
 
-# EX -15 - Replace All Odd Elements With '1' In One Dimensional Array
+# EX -15 - Replace All Even Elements With 'E' In One Dimensional Array
 
 ## Aim:
- To write a C program to replace all odd elements by 1 in one dimensional array
+To write a C program to replace all even elements with 'E' in one dimensional array
 
 ## Algorithm:
-
-1.      Start the program and read an integer n from the user to determine the size of the array.
-
-2.      Declare an array arr of size n and take n integer inputs from the user to fill it.
-
-3.      Go through each element in the array using a loop.
-
-4.      Check if each number is odd or even.
-
-5.      If the number is even, keep it as it is.
-
-6.      If the number is odd, replace it with 1.
-
-7.      Print the updated array, where all odd numbers are now replaced by 1.
-
+1.	Input the array:
+  Read the size of the array.
+  Input the elements of the array.
+2.	Iterate through the array:
+ 	For each element of the array, check if the element is even (i.e., if the element modulo 2 equals 0).
+3.	Replace even elements with 'E':
+     If an element is even, replace that element with the character 'E'.
+4.	Output the updated array:
+ Print the updated array after replacements.
 
 ## Program:
 ```
-#include <stdio.h>
-
-
 int main() {
-   
-    int n;
-    scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++)
-    { 
-        scanf("%d",&arr[i]);
-        
-    }
-    
-    for(int i=0;i<n;i++)
-    { 
-        
-        if(arr[i]%2==0) arr[i]=arr[i];
-        else arr[i]=1;
-    }
-    for(int i=0;i<n;i++)
-        printf("%d ",arr[i]);
-    
-    
-    return 0;
+int n;
+printf("Enter the number of elements: ");
+scanf("%d", &n);
+int arr[n];
+printf("Enter %d elements:\n", n);
+for (int i = 0; i < n; i++) {
+scanf("%d", &arr[i]);
+}
+printf("Updated array:\n");
+for (int i = 0; i < n; i++) {
+if (arr[i] % 2 == 0) {
+printf("E ");
+} else {
+printf("%d ", arr[i]);
+}
+}
+printf("\n");
+return 0;
 }
 ```
 ## Output:
  
-![image](https://github.com/user-attachments/assets/425af290-5012-457a-a3a3-db3ecacfe5da)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/065ddeeb-8651-4912-8662-be2cddbfd70b)
 
 
 ## Result:
 
-Thus, the program to replace all odd elements with '1' in one dimensional array was verified successfully.
+Thus, the program to replace all even elements with 'E' in one dimensional array was verified successfully.
 
 
 
